@@ -57,15 +57,13 @@ size_t binary_tree_size(const binary_tree_t *tree)
 */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int size, height, test;
+	int size;
 	int left_height, right_height;
 
 	if (tree == NULL || tree->right == NULL || tree->left == NULL)
 		return (0);
 	size = binary_tree_size(tree) - 1;
-	height = binary_tree_height(tree) + 1;
-	test = height * 2;
-	if (test != size)
+	if (size % 2 != 0)
 		return (0);
 	if (binary_tree_is_full(tree) != 1)
 		return (0);
